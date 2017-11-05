@@ -4,6 +4,16 @@ require 'csv'
 
 class Book < ActiveRecord::Base
   # This method is used to create a CSV representation of the data in the database
+
+  validate :custom_validation
+
+  def custom_validation
+    unless title.chars.first == "A"
+      errors.add :base, "title must beging with A"
+    end
+  end
+
+
   def self.generate_csv(book_list)
     header = ['id', 'title', 'author', 'already_read']
 

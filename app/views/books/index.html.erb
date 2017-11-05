@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <% @books.each do |book| %>
+      <div class="book">
+        <p>Title:<%= book.title %></p>
+        <p>Author:<%= book.author %></p>
+        <p>
+          Already read:
+          <%= if book.already_read == true
+                "Yes"
+              else
+                "no"
+              end %>
+        </p>
+      </div>
+    <% end %>
+  </body>
+</html>
